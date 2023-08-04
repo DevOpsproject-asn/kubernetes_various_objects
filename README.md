@@ -1,0 +1,1 @@
+# kubernetes_various_objects
