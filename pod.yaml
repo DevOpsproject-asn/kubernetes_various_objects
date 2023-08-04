@@ -1,6 +1,6 @@
-#RC ( ReplicationController ) mainfest file create the POD 
+# mainfest file create the POD 
 apiVersion: v1
-kind: ReplicationController
+kind: Pod
 metadata: 
   name: nginx-RC-Pod
   lables:
@@ -12,7 +12,7 @@ spec:
     ports: 
     - containerPort: 8080
 ---
-# service creating for RC pod
+# service creating for pod
 apiVersion: v1
 kind: Service
 metadata: 
@@ -22,7 +22,7 @@ spec:
   selector: 
     app: nginx
   ports:
-  - name: nginxport
+  - name: ngnix
     port: 80
     targetPort: 8080
     protocal: TCP
