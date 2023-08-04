@@ -1,0 +1,35 @@
+# DeamonSet pod create 
+apiVersion: apps/v1
+kind: DeamonSet
+metadata:
+  name: nginx-ds
+spec:
+   selector:
+     matchlabels:
+        app: nginx-pod
+     template:
+       metadata:
+         lables:
+           app: nginx-pod
+       spec:
+         nodeSelector:
+           name: node2
+         containers:
+         - name: nginximage
+           image: nginx
+           ports:
+           - containerPort: 8080
+---
+#service create for DS
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-ds-svc
+spec:
+  type: ClusterIP
+  selector:
+    app: nginx-pod
+  ports:
+  - port: 80
+    targetPort: 8080
+
