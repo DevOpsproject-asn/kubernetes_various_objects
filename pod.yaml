@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Pod
 metadata: 
-  name: nginx-RC-Pod
+  name: nginx-Pod
   lables:
      app: nginx
 spec:
